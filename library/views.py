@@ -2,15 +2,15 @@ from rest_framework import viewsets, generics, status
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
-from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from django.db import transaction as db_transaction
 from django.utils import timezone
+from django.contrib.auth import get_user_model
 
 from .models import Book, Transaction
 from .serializers import BookSerializer, TransactionSerializer, UserSerializer
 
-# BookViewSet: CRUD + filtering for availability
+User = get_user_model()
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
