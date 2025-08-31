@@ -34,8 +34,8 @@ __pycache__/
 
 
 .Python
-.vevn
-build/
+.venv/
+gbuild/
 develop-eggs/
 dist/
 downloads/
